@@ -1,0 +1,186 @@
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"> <title>Мой сайт</title> </head> <body> <h1 id="title">Привет!</h1> <button onclick="changeText()">Нажми меня</button>
+
+<button onclick="changeBackground()">Сменить фон</button>
+<script>
+    function changeText() {
+        document.getElementById("title").textContent = "Ты нажал кнопку 🚀";
+    }
+
+
+    function changeBackground() {
+        if (document.body.style.backgroundColor === "black") {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        } else {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор числа</title>
+</head>
+<body>
+
+<h1>Генератор случайного числа</h1>
+
+<button onclick="randomNumber()">Случайное число</button>
+<p id="number"></p>
+
+<script>
+    function randomNumber() {
+        let num = Math.floor(Math.random() * 100) + 1;
+        document.getElementById("number").textContent =
+            "Твоё число: " + num;
+    }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Часы тест</title>
+  <style>
+    #clock {
+      font-size: 2em;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Текущее время:</h1>
+  <div id="clock">Загрузка...</div>
+
+  <script>
+    console.log("Скрипт запущен"); // проверка запуска скрипта
+
+    window.onload = function() {
+      console.log("window.onload работает"); // проверка загрузки
+      const clock = document.getElementById('clock');
+
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2,'0');
+        const minutes = String(now.getMinutes()).padStart(2,'0');
+        const seconds = String(now.getSeconds()).padStart(2,'0');
+
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Тест</title>
+</head>
+<body style="text-align:center; margin-top:50px; font-family:Arial;">
+
+  <h1>Случайный факт</h1>
+
+  <button onclick="showFact()">Показать случайный факт</button>
+
+  <div id="fact" style="margin-top:20px; font-size:18px;"></div>
+
+  <script>
+    const facts = [
+      "У осьминога три сердца.",
+      "Бананы — это ягоды.",
+      "Космос беззвучный.",
+      "Пчёлы видят ультрафиолет.",
+      "У акулы нет костей."
+    ];
+
+    function showFact() {
+      // звук (простой beep)
+      const audio = new Audio();
+      audio.src = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=";
+      audio.play();
+
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      document.getElementById("fact").innerText = facts[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Мой ИИ</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input {
+      padding: 8px;
+      width: 250px;
+    }
+
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+
+    #response {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Мой ИИ 🤖</h1>
+
+  <input type="text" id="userInput" placeholder="Напишите что-нибудь...">
+  <button onclick="askAI()">Спросить</button>
+
+  <div id="response"></div>
+
+  <script>
+    function askAI() {
+      const input = document.getElementById("userInput").value.toLowerCase();
+      const responseDiv = document.getElementById("response");
+
+      let answer = "Я пока не понимаю это 🤔";
+
+      if (input.includes("привет")) {
+        answer = "Привет, сэр 😎";
+      } 
+      else if (input.includes("как дела")) {
+        answer = "У меня отлично! А у вас?";
+      }
+      else if (input.includes("время")) {
+        const now = new Date();
+        answer = "Сейчас " + now.toLocaleTimeString();
+      }
+      else if (input.includes("шутка")) {
+        answer = "Почему программисты любят темную тему? Потому что свет притягивает баги 😄";
+      }
+
+      responseDiv.innerText = answer;
+    }
+  </script>
+
+</body>
+</html>
